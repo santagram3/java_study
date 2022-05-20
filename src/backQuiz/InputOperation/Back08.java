@@ -2,7 +2,7 @@ package backQuiz.InputOperation;
 
 import java.util.Scanner;
 
-public class Back05 {
+public class Back08 {
     public static void main(String[] args) {
 
 
@@ -16,15 +16,10 @@ public class Back05 {
         // - nextInt() : 정수를 입력
         // - nextDouble() : 실수를 입력
 
-        int A = sc.nextInt();
-        int B = sc.nextInt();
+        double A = sc.nextDouble();
+        double B = sc.nextDouble();
 
-        System.out.println(A+B);
-        System.out.println(A-B);
-        System.out.println(A*B);
         System.out.println(A/B);
-        System.out.println(A%B);
-
 
         sc.close();
 
