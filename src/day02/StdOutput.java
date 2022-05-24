@@ -30,7 +30,7 @@ public class StdOutput {
         double rate = 25.45678901234;
         System.out.printf("비율은 %f입니다.\n",rate);
         System.out.printf("비율은 %.4f입니다.\n",rate);
-        System.out.printf("비율은 %.2f입니다.\n",rate);
+        System.out.printf("비율은 %.3f입니다.\n",rate);
         System.out.printf("비율은 %.21f입니다.\n",rate);
         System.out.printf("비율은 %.1f%%입니다.\n",rate);
         System.out.printf("비율은 %.0f%%입니다.\n",rate);

@@ -21,10 +21,11 @@ public class ArraySearch_include_index {
          }//end for
 
 
-        System.out.println("찾은 인덱스 :"+index);
 
         boolean hasFood = index != -1;
+        // hasFood의 index 가
         System.out.println("존재유무 : " + hasFood);
+        System.out.println("찾은 인덱스 :"+index);
 
 
     }
