@@ -286,11 +286,11 @@ public class MemberMenu {
 
     }
 
-    // 입력처리를 간단하게 만드는 메서드
     private String inputStr(String msg) {
         System.out.printf(msg);
         return sc.next();
     }
+    // 입력처리를 간단하게 만드는 메서드
     private int inputNumber(String msg) {
         System.out.printf(msg);
         return sc.nextInt();
