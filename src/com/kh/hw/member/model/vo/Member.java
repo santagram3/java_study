@@ -22,6 +22,7 @@ public class Member {
         this.gender = gender;
         this.age = age;
     }
+
     // ============================메서드 =============================
 
     public String inform(){
