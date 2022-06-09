@@ -6,7 +6,6 @@ package day06;
 public class MethodBasic {
 
     // 1 ~ x 까지의 누적합을 구해서 리턴하는 함수
-
     static int calctotal(int x) {
         System.out.println("메서드 호출 !");
         int total = 0;
