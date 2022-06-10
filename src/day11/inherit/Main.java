@@ -16,7 +16,7 @@ public class Main {
         m.showStatus();
         h.showStatus();
 
-        w.rush();
+//        w.rush();
 
         w.exp = 100;
         m.exp = 50;
