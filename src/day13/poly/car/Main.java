@@ -106,6 +106,7 @@ public class Main {
 
     } // end main
 
+    // 별별별별별별벼렵렵려별벼렵려벼려별벼려벼려볍려벼벼려별벼려별별별별별
     public static void cast(Object o) {
         if (o instanceof String) {
             String s = (String) o;
