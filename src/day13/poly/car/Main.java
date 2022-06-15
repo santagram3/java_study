@@ -19,6 +19,8 @@ public class Main {
         Car s2 = new Stinger();
 
 
+
+
         Car[] cars = {g1, g2, g3, m1, m2, s1, s2, new Granduer(), new Mustang(), new Stinger()};
 
         for (Car c : cars) {
