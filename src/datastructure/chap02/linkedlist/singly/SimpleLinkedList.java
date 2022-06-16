@@ -2,31 +2,31 @@ package datastructure.chap02.linkedlist.singly;
 
 
 // 단방향 단순 연결 리스트
-public class SimpleLinkedList {
+public class SimpleLinkedList<E> {
 
     // 연결 리스트는 언제나 헤더노드 같은 감시노드를 갖고 있어야 함
-    private HeaderNode header;
+    private HeaderNode<E> header;
 
     // 생성자
     public SimpleLinkedList() {
         // 연결 리스트가 처음 생성 됐을 때, 헤어노드도 같이 생성되어야 함 .
-        this.header = new HeaderNode();
+        this.header = new HeaderNode<E>();
 
     }
 
     //리스트의 첫 번째 위치로 노드를 삽입하는 매서드
-    public void addFirst(int data) {
+    public void addFirst(E data) {
 //
 //        System.out.printf("신규데이터 %d 맨앞에 추가 ! \n", data);
 
         // 새롭게 추가할 정수 데이터를 신규노드에 저장
         // 새로운 뉴 노드의 주소  = 새로운 뉴 data 노드를 생성
-        Node newNode = new Node(data);
+        Node<E> newNode = new Node<>(data);
 //        System.out.printf("새로운 노드의 주소 : %s\n", newNode);
 
         // 새로운 노드에게 기존의 첫번째 노드의 주소를 저장
 //        header.getFirstNode(); // return  = old firstNode
-        Node oldFirstNode = header.getFirstNode(); // 기존의 첫번째 노드 주소 획득
+        Node<E> oldFirstNode = header.getFirstNode(); // 기존의 첫번째 노드 주소 획득
 
 //        System.out.printf("헤더가 감시하던 기존 첫번째 노드의 주소: %s\n", oldFirstNode);
 
@@ -42,14 +42,14 @@ public class SimpleLinkedList {
     }
 
     // 리스트의 첫번째 노드 삭제
-    public Node removeFirst() {
+    public Node<E> removeFirst() {
         // 빈 리스트인지를 확인
         if (!header.isEmpty()) {
             // 삭제 대상 노드를 키핑
-            Node tempNode = header.getFirstNode();
+            Node<E> tempNode = header.getFirstNode();
 
             // 삭제 대상 노드의 다음 노드 주소 가져오기
-            Node nextNode = tempNode.getNextNode();
+            Node<E> nextNode = tempNode.getNextNode();
 
             // 헤더 노드가 다음 노드를 감시하도록 설정
             header.setFirstNode(nextNode);
@@ -64,24 +64,28 @@ public class SimpleLinkedList {
 
     // 정렬된 리스트에서 특정 위치에 노드 삽입
 
-    public void insert(int data) {
+    public void insert(E data) {
         // 새로운 노드 생성
-        Node newNode = new Node(data); //새로운 주소 =  새로 만든 뉴 노드
+        Node<E> newNode = new Node<>(data); //새로운 주소 =  새로 만든 뉴 노드
 
         // 첫 번째 노드를 가져와서 현재 노드로 설정
-        Node current = header.getFirstNode();
+        Node<E> current = header.getFirstNode();
         // 바로 이전 노드 가져오기
-        Node prev = null;
+        Node<E> prev = null;
 
+        /*
         // 삽입 위치 탐색
         // 빈 리스트가 아니고 , 삽입할 데이터가 현재노드의 데이터보다 작아질때까지
-        while (current != null && data > current.getData()) {
+        while (current != null &&  data > current.getData()) {
             // 현재 노드를 이전노드에 백업
             prev = current;
             // 다음 노드를 현재 노드로 재설정
             current = current.getNextNode();
 
         }
+
+         */
+
         // 빈 리스트일경우
         if (prev == null) {
             // 새로운 노드를 첫번째 노드로 설정
@@ -97,13 +101,14 @@ public class SimpleLinkedList {
         newNode.setNextNode(current);
 
     }
-// 정렬된 리스트에서 특정 위치 노드 삭제
-    public Node remove(int data){
+
+    // 정렬된 리스트에서 특정 위치 노드 삭제
+    public Node<E> remove(E data) {
 
         // 첫 번째 노드를 가져와서 현재 노드로 설정
-        Node current = header.getFirstNode();
+        Node<E> current = header.getFirstNode();
         // 바로 이전 노드 가져오기
-        Node prev = null;
+        Node<E> prev = null;
 
         // 삽입 위치 탐색
         // 빈 리스트가 아니고 , 삭제할 데이터가 현재노드의 데이터와 같을때까지
@@ -115,14 +120,14 @@ public class SimpleLinkedList {
 
         }
         // 삭제 대상이 첫번째 노드인 경우
-        if (prev == null && current != null){
+        if (prev == null && current != null) {
             // 헤더가 기존의 2번째 노드를 감시하도록 설정
-            Node secondNode = header.getFirstNode().getNextNode();
+            Node<E> secondNode = header.getFirstNode().getNextNode();
 //            Node secondNode = current.getNextNode(); 위에랑 같은말
             header.setFirstNode(secondNode);
         }
         // 삭제 대상이 중간 어딘가인경우
-        else if (prev !=null && current !=null){
+        else if (prev != null && current != null) {
             // 삭제 대상의 이전노드가 삭제 대상의 다음노드를 연결
             prev.setNextNode(current.getNextNode());
         }
@@ -130,16 +135,16 @@ public class SimpleLinkedList {
     }
 
     // 리스트를 전체 순회하여 완성된 문자열로 반환
-    public String printList(){
+    public String printList() {
         String str = "[ ";
 
-        Node current = header.getFirstNode();
-        while (current != null){
+        Node<E> current = header.getFirstNode();
+        while (current != null) {
             str += current.getData();
             current = current.getNextNode();
 
-            if (current != null){
-            str += ", ";
+            if (current != null) {
+                str += ", ";
             }
         }
         str += "]";
