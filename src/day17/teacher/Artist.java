@@ -1,8 +1,9 @@
 package day17.teacher;
 
+import java.io.Serializable;
 import java.util.*;
 
-public class Artist {
+public class Artist implements Serializable {
 
 
     private String name; // 가수명

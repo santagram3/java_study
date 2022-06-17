@@ -2,18 +2,30 @@
 package day17.teacher;
 
 import day17.teacher.*;
+import day18.api.io.obj.Human;
 
+import java.io.*;
 import java.util.*;
 
 public class ArtistController {
 
     // key는 가수명을 사용
-    private final Map<String, Artist> artistMap;
+    private Map<String, Artist> artistMap;
+
+    // 유일하게 만들기 위해 싱글톤
+    // 다른 객체에서 직접 생산 하지 못하게
+    // 1. private으로 제한을 걸어두고 static 으로 유일하게 만든다
+//    그리고 그걸 내부에서 만드는 코드
+//    private static ArtistController ac;
+
+    // 2. 그리고 static 으로 감싸서 static 안에서 생성한다
 
     private static ArtistController ac;
+
     static {
         ac = new ArtistController();
     }
+
 
     private ArtistController() {
         artistMap = new HashMap<>();
@@ -68,4 +80,52 @@ public class ArtistController {
     public List<String> getSongList(String artistName) {
         return artistMap.get(artistName).getSongs();
     }
+
+    // 세이브 파일 저장할 디렉토리 생성
+    public void makeDirectory() {
+        File dir = new File("E:/music");
+        if (!dir.exists()) dir.mkdirs();
+    }
+
+    //세이브 기능
+    public void save() {
+
+
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("E:/music/m.sav"))) {
+
+            oos.writeObject(artistMap);
+//            java.io.NotSerializableException: day18.api.io.obj.Human
+//            직렬 화가 안된다고 7
+
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    // 로드 기능
+    public void load() {
+
+        File file = new File("E:/music/m.sav");
+
+        if (file.exists()) {
+            try (ObjectInputStream ois
+                         = new ObjectInputStream(new FileInputStream("E:/music/m.sav"))) {
+
+                artistMap = (Map<String, Artist>) ois.readObject();
+
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
+
+
 }
