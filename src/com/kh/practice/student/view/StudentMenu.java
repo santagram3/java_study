@@ -21,7 +21,6 @@ public class StudentMenu {
         double[] scores = ssm.avgScore();
         System.out.printf("학생 점수 합계 : %d\n ", (int)scores[0]);
         System.out.printf("학생 점수 평균 : %d\n ", (int)scores[1]);
-
         System.out.println("============성적 결과 출력==============");
 
         for (Student s : students) {

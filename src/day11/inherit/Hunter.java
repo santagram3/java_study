@@ -7,6 +7,10 @@ public class Hunter extends Player {
 
     public Hunter(String name) {
         super(name);
+//        부모에서 가져온 정보
+//        this.name = name;
+//        this.level = 1;
+//        this.hp = 50;
         this.arrow = 1000;
     }
 
