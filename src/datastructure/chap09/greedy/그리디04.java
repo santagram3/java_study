@@ -4,12 +4,12 @@ package datastructure.chap09.greedy;
 import java.util.LinkedList;
 import java.util.Queue;
 
-// 백준 1913번
+// 백준 1931번
 public class 그리디04 {
 
 
     public static void main(String[] args) {
-        
+
 /*
    0 1 2 3 4 5 6 7 8 9 10 11 12 13 14
      <----->          =>   1회
