@@ -14,7 +14,7 @@ public class Phone {
 
     // 상태속성
     int messageCount ; // 받은 문자메세지 수
-    boolean on; // 전원이 켜진 여부
+    boolean on; // 전원이 켜진 여부/
 
     // 부품속성
     // 문자메세지함

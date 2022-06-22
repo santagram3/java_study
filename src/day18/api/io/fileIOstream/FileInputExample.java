@@ -13,7 +13,6 @@ public class FileInputExample {
         /*FileInputStream fis = null;
         try {
             fis = new FileInputStream("E:/sl_dev/java_study/src/datastructure/chap02/linkedlist/singly/Node.java");
-
             int data = 0;
             while (data != -1) {
                 data = fis.read();

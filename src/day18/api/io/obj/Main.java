@@ -2,72 +2,51 @@ package day18.api.io.obj;
 
 import java.io.*;
 import java.util.ArrayList;
-
-import java.util.*;
-
+import java.util.List;
 
 public class Main {
 
-    static List<Human> humanList =new ArrayList<>();
+    static List<Human> humanList = new ArrayList<>();
 
     public static void main(String[] args) {
-        humanList.add(new Human("김철수 ", 22,"서울시 구로구"));
-        humanList.add(new Human("이칠수 ", 222,"서울시 감가구"));
-        humanList.add(new Human("삼칠수 ", 52,"노로드 감가구"));
 
+        humanList.add(new Human("김철수", 22, "서울시 구로구"));
+        humanList.add(new Human("박영희", 24, "서울시 금천구"));
+        humanList.add(new Human("홍길동", 45, "서울시 중구"));
 
-
-//        saveTxtFile();
-    saveObject();
+//        saveTextFile();
+        saveObject();
     }
 
-    // 세이브 기능
+    // 객체 세이브 기능
+    static void saveObject() {
 
-    static void saveObject(){
-
-        try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("E:/Exercise/human.sav"))){
+        try (ObjectOutputStream oos
+                     = new ObjectOutputStream(new FileOutputStream("E:/Exercise/human.sav"))) {
 
             oos.writeObject(humanList);
-//            java.io.NotSerializableException: day18.api.io.obj.Human
-//            직렬 화가 안된다고 7
 
         } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
-
     }
 
-
-
     // 세이브 기능
-    static void saveTxtFile(){
+    static void saveTextFile() {
 
-        try (FileWriter fw = new FileWriter("E:/exercise/human.txt")){
+        try (FileWriter fw = new FileWriter("E:/Exercise/human.txt")) {
 
             StringBuilder sb = new StringBuilder();
             for (Human h : humanList) {
-                fw.write(String.format("%s,%d,%s\r\n" , h.getName(),h.getAge(),h.getAddress()));
+                fw.write(String.format("%s,%d,%s\r\n", h.getName(), h.getAge(), h.getAddress()));
             }
-            System.out.println(" 저장완료 ");
+            System.out.println("저장 완료!");
 
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
     }
-
-    // 로드 기능
-    static void load(){
-
-
-
-    }
-
-
-
-
-
-
 
 }
