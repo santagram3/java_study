@@ -3,6 +3,7 @@ package datastructure.chap12;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.StringTokenizer;
@@ -44,6 +45,13 @@ public class DFS_실전문제03 {
 
     4. 모든 노드를 돌아도 1이 리턴되지 않았다면 0을 리턴하고 종료
  */
+
+    // 친구 관계를 저장할 인접 리스트
+
+    static List<List<Integer>> adjList = new ArrayList<>();
+
+    // 방문배열
+    static boolean[] visitied;
 
 
 
